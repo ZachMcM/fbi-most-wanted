@@ -41,7 +41,7 @@ export default function App() {
         <section className='my-10'>
           <h1 className='text-4xl'>FBI Most Wanted Locator</h1>
           <p className='text-gray-400 my-3'>Find the most wanted individuals by your local FBI office</p>
-          <a className='text-sky-400 hover:text-sky-500 cursor-pointer'>
+          <a href='https://www.fbi.gov/' className='text-sky-400 hover:text-sky-500 cursor-pointer'>
             <span className='mr-2'>FBI Website</span>
             <i className="fa-solid fa-arrow-up-right-from-square"></i>
           </a>
