@@ -7,6 +7,8 @@ export default function App() {
   const [wanted, setWanted] = useState<any>([])
   const [suggestions, setSuggestions] = useState<any>([])
   const [search, setSearch] = useState<string>('')
+  const [office, setOffice] = useState<string>('')
+  const [officeShowing, setOfficeShowing] = useState<string>('hidden')
 
   function handleSearch(value: string) {
     setSearch(value)
@@ -17,6 +19,7 @@ export default function App() {
       setSuggestions(suggestions)
     } else {
       setSuggestions([])
+      setOfficeShowing('hidden')
       setWanted([])
     }
   }
@@ -25,13 +28,14 @@ export default function App() {
     setSuggestions([])
     setSearch('')
     getWanted(office)
+    setOfficeShowing('block')
+    setOffice(office)
   }
 
   async function getWanted(office: string) {
     office = office.split(" ").join("").toLocaleLowerCase()
     const response = await fetch('https://api.fbi.gov/@wanted?pageSize=20&page=1&sort_on=modified&sort_order=desc&field_offices=' + office)
     const data = await response.json()
-    console.log(data.items) 
     setWanted(data.items)
   }
 
@@ -67,6 +71,7 @@ export default function App() {
                 })
               }
             </ul>
+          <h1 className={`text-xl mt-12 ${officeShowing}`}>Viewing Results For: {office}</h1>
           <div className='lg:grid lg:grid-cols-2 md:gap-10 my-10'>
             {
               wanted.map((wanted: any) => {
