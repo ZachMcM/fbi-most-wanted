@@ -99,7 +99,7 @@ export default function App() {
         </section>
 
       </div>
-      <footer className='p-10 bg-white dark:bg-gray-900'>
+      <footer className='p-10 bg-gray-900'>
             <ul className='flex text-sm my-2'>
                 <li className='mx-1'><a className='text-sky-400 hover:text-sky-500' href='https://github.com/ZachMcM'>Github</a></li>
                 <li className='mx-1 text-sky-400'>·</li>
